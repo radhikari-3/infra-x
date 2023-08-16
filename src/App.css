@@ -1,12 +1,13 @@
-.login-container {
+.box {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #111d4a;
+  background-color: #000;
 }
 
+/* #86bc25 */
 .login-form h1 {
   text-align: center;
   padding: 20px;
@@ -19,8 +20,10 @@
   justify-content: space-around;
   flex-direction: column;
   padding: 40px;
-  background-color: #ffff;
+  background-color: #fff;
   border-radius: 4px;
+  margin-top: 50px;
+  overflow: hidden;
 }
 
 .form-group {
@@ -59,7 +62,7 @@ input {
   font-size: 12px;
 }
 
-.login-form  button {
+.login-form button {
   padding: 15px;
   background-color: #4caf50;
   color: white;
@@ -81,7 +84,7 @@ input {
 
 .sidebar {
   width: 200px;
-  background-color:  #0c9;
+  background-color: #0c9;
 }
 
 .sidebar ul {
@@ -226,7 +229,7 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #111d4a;
+  background-color: #000;
 }
 
 .header-title {
@@ -253,4 +256,28 @@ button:hover {
   color: #fff;
   display: flex;
   flex-direction: column;
+}
+
+.block {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.bg {
+  width: 400px;
+  object-fit: contain;
+  margin-right: 40px;
+}
+
+.check {
+  width: 10px !important;
+}
+
+@media screen and (max-width: 1024px) {
+  .bg {
+    display: none;
+  }
 }
