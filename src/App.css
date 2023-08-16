@@ -334,7 +334,8 @@ button:hover {
 }
 
 .user-table {
-  width: 100%;
+  width: 85%;
+  margin: 0 auto;
   border-collapse: collapse;
   border: 1px solid #ccc;
 }
