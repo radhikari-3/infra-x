@@ -85,7 +85,7 @@ input {
 .sidebar {
   width: 200px;
   margin-top: 60px;
-  background-color: #26890d;
+  background-color: #32a815;
   overflow: hidden;
 }
 
@@ -148,14 +148,14 @@ input {
 
 .sender {
   align-self: flex-end;
-  background-color: #4daff1;
+  background-color: #0ed5e4;
   color: #000;
   width: 80%;
 }
 
 .receiver {
   align-self: flex-start;
-  background-color: #54d748;
+  background-color: #a3e628;
   color: #000;
   width: 90%;
 }
@@ -179,7 +179,7 @@ input {
   margin: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #007bff;
+  background-color: #0f0f0f;
   color: #fff;
   cursor: pointer;
 }
