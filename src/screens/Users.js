@@ -3,9 +3,9 @@ import '../App.css';
 
 export default function Users() {
   const usersData = [
-    { id: 1, name: 'User 1', role: 'Admin' },
-    { id: 2, name: 'User 2', role: 'Editor' },
-    { id: 3, name: 'User 3', role: 'Viewer' },
+    { id: 1, name: 'Rohit', role: 'Admin' },
+    { id: 2, name: 'Prasanth', role: 'Editor' },
+    { id: 3, name: 'Santosh', role: 'Viewer' },
     // Add more users as needed
   ];
 
