@@ -16,7 +16,7 @@ const HeaderBox = ({ title, onLogout }) => {
       <div className="header-profile">
         <img src={profile} alt="Profile" className="header-profile-image" />
         <div className="header-logout">
-          <small>James Sudhir</small>
+          <small>Rohit Adhikari</small>
           <small onClick={handleLogout}>Logout</small>
         </div>
       </div>
