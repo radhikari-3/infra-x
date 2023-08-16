@@ -43,7 +43,7 @@ function Chat() {
               ]);
             }, 1000);
             break;
-          case "create an ec2 template using":
+          case "create an ec2 template using terraform":
             newReceiverMessage = {
               content:
                 "Before that can you tell me which vendor you are looking to integrate with? AWS, GCP, or Azure?",
@@ -64,40 +64,40 @@ function Chat() {
                 content: (
                   <div>
                     <pre class="code-block">
-                      {`provider "aws" {
-            region = "us-west-2"  # Replace with your desired AWS region
-          }
-          
-          resource "aws_instance" "example" {
-            ami           = "ami-12345678"  # Replace with your desired AMI ID
-            instance_type = "t2.micro"
-            subnet_id     = "subnet-12345678"  # Replace with your desired subnet ID
-          
-            tags = {
-              Name = "ExampleInstance"
-            }
-          }
-          
-          resource "aws_launch_template" "example" {
-            name = "example-template"
-            
-            image_id = aws_instance.example.ami
-            instance_type = "t2.micro"
-            
-            block_device_mappings {
-              device_name = "/dev/sda1"
-              ebs {
-                volume_size = 30
-              }
+                        {`provider "aws" {
+              region = "us-west-2"  # Replace with your desired AWS region
             }
             
-            tag_specifications {
-              resource_type = "instance"
+            resource "aws_instance" "example" {
+              ami           = "ami-12345678"  # Replace with your desired AMI ID
+              instance_type = "t2.micro"
+              subnet_id     = "subnet-12345678"  # Replace with your desired subnet ID
+            
               tags = {
-                Name = "ExampleTemplateInstance"
+                Name = "ExampleInstance"
               }
             }
-          }`}
+            
+            resource "aws_launch_template" "example" {
+              name = "example-template"
+              
+              image_id = aws_instance.example.ami
+              instance_type = "t2.micro"
+              
+              block_device_mappings {
+                device_name = "/dev/sda1"
+                ebs {
+                  volume_size = 30
+                }
+              }
+              
+              tag_specifications {
+                resource_type = "instance"
+                tags = {
+                  Name = "ExampleTemplateInstance"
+                }
+              }
+            }`}
                     </pre>
                   </div>
                 ),
@@ -110,15 +110,6 @@ function Chat() {
                 helpMessage,
               ]);
             }, 1500);
-            break;
-
-          case "provide an actual ec2 instance terraform template":
-            newReceiverMessage = {
-              content:
-                "Sure, here is the Terraform code for an EC2 instance:\n... (template)",
-              sender: "receiver",
-              isSimpleText: true,
-            };
             break;
           case "can you provide a design diagram ?":
             newReceiverMessage = {
