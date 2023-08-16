@@ -109,7 +109,7 @@ function Chat() {
                 newReceiverMessage,
                 helpMessage,
               ]);
-            }, 1000);
+            }, 1500);
             break;
 
           case "provide an actual ec2 instance terraform template":
