@@ -7,7 +7,6 @@
   background-color: #000;
 }
 
-/* #86bc25 */
 .login-form h1 {
   text-align: center;
   padding: 20px;
@@ -80,11 +79,14 @@ input {
 .admin-panel {
   display: flex;
   height: 100vh;
+  overflow: hidden;
 }
 
 .sidebar {
   width: 200px;
-  background-color: #0c9;
+  margin-top: 60px;
+  background-color: #86bc25;
+  overflow: hidden;
 }
 
 .sidebar ul {
@@ -104,8 +106,14 @@ input {
   align-items: center;
 }
 
+.pad {
+  padding-left: 40px;
+}
+
 .dashboard {
   flex: 1;
+  margin-top: 40px;
+  overflow: hidden;
 }
 
 .sidebar a.active {
@@ -223,24 +231,42 @@ button:hover {
   border-radius: 3px;
 }
 
+.black {
+  color: #000;
+  text-align: center;
+}
+
+.login-form .header-title {
+  align-self: center;
+}
+
 /* Header Component */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
   background-color: #000;
+  position: fixed;
+  width: 100%;
+  height: 60px;
 }
 
 .header-title {
   font-size: 18px;
   font-weight: bold;
   color: #fff;
+  display: flex;
+  margin-left: 20px;
+}
+
+.green {
+  color: #86bc25;
 }
 
 .header-profile {
   display: flex;
   align-items: center;
+  margin-right: 20px;
 }
 
 .header-profile-image {

@@ -49,7 +49,10 @@ const Login = () => {
         <img src={bg} alt="logo" className="bg" />
         <div className="login-container">
           <form className="login-form" onSubmit={handleSubmit}>
-            <h1>Login Page</h1>
+            <div className="header-title">
+              <h2 className="black">Infra</h2>
+              <h2 className="green">X</h2>
+            </div>
             <div className="form-group">
               <label htmlFor="username">Username:</label>
               <input
