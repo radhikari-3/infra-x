@@ -135,20 +135,14 @@ function Chat() {
               isSimpleText: true,
             };
             break;
-          case "yes":
+          case "I like it":
             newReceiverMessage = {
               content: "Great! I'm glad you liked it.",
               sender: "receiver",
               isSimpleText: true,
             };
             break;
-          case "do you want to download ?":
-            newReceiverMessage = {
-              content: "Yes, you can download the files.",
-              sender: "receiver",
-              isSimpleText: true,
-            };
-            break;
+       
           default:
             newReceiverMessage = {
               content: "I'm sorry, I didn't understand that.",
