@@ -26,7 +26,7 @@ function Chat() {
               setMessages([...messages, helloMessage, newReceiverMessage, helpMessage]);
             }, 1000);
             break;
-          case 'i want you to create an ec2 template':
+          case 'create an ec2 template using':
             newReceiverMessage = {
               content:
                 "Before that can you tell me which vendor you are looking to integrate with? AWS, GCP, or Azure?",
@@ -35,13 +35,7 @@ function Chat() {
             break;
           case 'aws':
             newReceiverMessage = {
-              content: 'Ok, generating you a basic EC2 instance template.',
-              sender: 'receiver',
-            };
-            break;
-          case 'provide an actual ec2 instance terraform template':
-            newReceiverMessage = {
-              content: `Sure! Here's an example of how you can create an EC2 instance template using Terraform for AWS:
+              content: 'Sure! Here's an example of how you can create an EC2 instance template using Terraform for AWS:
               
               1. Install Terraform:
               Make sure you have Terraform installed on your machine. You can download it from the official Terraform website: https://www.terraform.io/downloads.html
@@ -112,7 +106,13 @@ function Chat() {
 
               Terraform will create an EC2 instance and an instance launch template according to the configuration you specified in the main.tf file. Make sure to replace placeholder values like AMI ID, subnet ID, and region with appropriate values for your AWS environment.
 
-              Always refer to the official Terraform documentation and AWS documentation for the most accurate and up-to-date information.`,
+              Always refer to the official Terraform documentation and AWS documentation for the most accurate and up-to-date information.',
+              sender: 'receiver',
+            };
+            break;
+          case 'provide an actual ec2 instance terraform template':
+            newReceiverMessage = {
+              content: 'Sure, here is the Terraform code for an EC2 instance:\n... (template)',
               sender: 'receiver',
             };
             break;
