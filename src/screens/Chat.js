@@ -6,64 +6,65 @@ import {
 } from "../components/AnimatedText";
 
 import { FiUser } from "react-icons/fi";
+import { FiSend } from "react-icons/fi";
 
 function Chat() {
   const [newMessage, setNewMessage] = useState("");
   const [messages, setMessages] = useState([]);
 
-  const handleSendMessage = () => {
-    if (newMessage.trim() !== "") {
-      const newSenderMessage = { content: newMessage, sender: "sender" };
-      setMessages([...messages, newSenderMessage]);
-      setNewMessage("");
+    const handleSendMessage = () => {
+      if (newMessage.trim() !== "") {
+        const newSenderMessage = { content: newMessage, sender: "sender" };
+        setMessages([...messages, newSenderMessage]);
+        setNewMessage("");
 
-      setTimeout(() => {
-        let newReceiverMessage;
-        switch (newMessage.toLowerCase()) {
-          case "hi":
-            newReceiverMessage = {
-              content: "Hello!",
-              sender: "receiver",
-              isSimpleText: true,
-            };
-            const helloMessage = { content: newMessage, sender: "sender" };
-            setMessages([...messages, helloMessage, newReceiverMessage]);
-
-            setTimeout(() => {
-              const helpMessage = {
-                content: "How can I help you today?",
+        setTimeout(() => {
+          let newReceiverMessage;
+          switch (newMessage.toLowerCase()) {
+            case "hi":
+              newReceiverMessage = {
+                content: "Hello!",
                 sender: "receiver",
                 isSimpleText: true,
               };
-              setMessages([
-                ...messages,
-                helloMessage,
-                newReceiverMessage,
-                helpMessage,
-              ]);
-            }, 1000);
-            break;
-          case "create an ec2 template using terraform":
-            newReceiverMessage = {
-              content:
-                "Before that can you tell me which vendor you are looking to integrate with? AWS, GCP, or Azure?",
-              sender: "receiver",
-            };
-            break;
-          case "aws":
-            newReceiverMessage = {
-              content: "Here is your template",
-              sender: "receiver",
-              isSimpleText: true,
-            };
-            const helloMessage1 = { content: newMessage, sender: "sender" };
-            setMessages([...messages, helloMessage1, newReceiverMessage]);
+              const helloMessage = { content: newMessage, sender: "sender" };
+              setMessages([...messages, helloMessage, newReceiverMessage]);
 
-            setTimeout(() => {
-              const helpMessage = {
-                content: (
-                  <div>
-                    <pre class="code-block">
+              setTimeout(() => {
+                const helpMessage = {
+                  content: "How can I help you today?",
+                  sender: "receiver",
+                  isSimpleText: true,
+                };
+                setMessages([
+                  ...messages,
+                  helloMessage,
+                  newReceiverMessage,
+                  helpMessage,
+                ]);
+              }, 1000);
+              break;
+            case "create an ec2 template using terraform":
+              newReceiverMessage = {
+                content:
+                  "Before that can you tell me which vendor you are looking to integrate with? AWS, GCP, or Azure?",
+                sender: "receiver",
+              };
+              break;
+            case "aws":
+              newReceiverMessage = {
+                content: "Here is your template",
+                sender: "receiver",
+                isSimpleText: true,
+              };
+              const helloMessage1 = { content: newMessage, sender: "sender" };
+              setMessages([...messages, helloMessage1, newReceiverMessage]);
+
+              setTimeout(() => {
+                const helpMessage = {
+                  content: (
+                    <div>
+                      <pre class="code-block">
                         {`provider "aws" {
               region = "us-west-2"  # Replace with your desired AWS region
             }
@@ -98,93 +99,96 @@ function Chat() {
                 }
               }
             }`}
-                    </pre>
-                  </div>
-                ),
+                      </pre>
+                    </div>
+                  ),
+                  sender: "receiver",
+                };
+                setMessages([
+                  ...messages,
+                  helloMessage1,
+                  newReceiverMessage,
+                  helpMessage,
+                ]);
+              }, 1500);
+              break;
+            case "can you provide a design diagram ?":
+              newReceiverMessage = {
+                content:
+                  "Certainly, here is a basic architecture diagram:\n... (diagram)",
                 sender: "receiver",
+                isSimpleText: true,
               };
-              setMessages([
-                ...messages,
-                helloMessage1,
-                newReceiverMessage,
-                helpMessage,
-              ]);
-            }, 1500);
-            break;
-          case "can you provide a design diagram ?":
-            newReceiverMessage = {
-              content:
-                "Certainly, here is a basic architecture diagram:\n... (diagram)",
-              sender: "receiver",
-              isSimpleText: true,
-            };
-            break;
-          case "thanks":
-            newReceiverMessage = {
-              content: "You're welcome!",
-              sender: "receiver",
-              isSimpleText: true,
-            };
-            break;
-          case "I like it":
-            newReceiverMessage = {
-              content: "Great! I'm glad you liked it.",
-              sender: "receiver",
-              isSimpleText: true,
-            };
-            break;
-       
-          default:
-            newReceiverMessage = {
-              content: "I'm sorry, I didn't understand that.",
-              sender: "receiver",
-              isSimpleText: true,
-            };
-        }
-        setMessages([...messages, newSenderMessage, newReceiverMessage]);
-      }, 1000);
-    }
-  };
+              break;
+            case "thanks":
+              newReceiverMessage = {
+                content: "You're welcome!",
+                sender: "receiver",
+                isSimpleText: true,
+              };
+              break;
+            case "I like it":
+              newReceiverMessage = {
+                content: "Great! I'm glad you liked it.",
+                sender: "receiver",
+                isSimpleText: true,
+              };
+              break;
 
-  return (
-    <div className="chat-container">
-      <div className="messages">
-        {messages.map((message, index) => (
-          <div
-            key={index}
-            className={`message ${
-              message.sender === "sender" ? "sender" : "receiver"
-            }`}
-          >
-            <div className="profile-image">
-              {message.sender === "sender" ? (
-                <FiUser />
+            default:
+              newReceiverMessage = {
+                content: "I'm sorry, I didn't understand that.",
+                sender: "receiver",
+                isSimpleText: true,
+              };
+          }
+          setMessages([...messages, newSenderMessage, newReceiverMessage]);
+        }, 1000);
+      }
+    };
+
+    return (
+      <div className="chat-container">
+        <div className="messages">
+          {messages.map((message, index) => (
+            <div
+              key={index}
+              className={`message ${message.sender === "sender" ? "sender" : "receiver"
+                }`}
+            >
+              <div className="profile-image">
+                {message.sender === "sender" ? (
+                  <FiUser />
+                ) : (
+                  <img
+                    src="../deloitte-ai.png"
+                    alt="Receiver Profile"
+                    width="40" // Set appropriate width
+                    height="40" // Set appropriate height
+                  />
+                )}
+              </div>
+              {message.isSimpleText ? (
+                <SimpleAnimatedTextDisplay text={message.content} />
               ) : (
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/12/12096.png"
-                  alt="Receiver Profile"
-                />
+                <AnimatedTextDisplay content={message.content} />
               )}
             </div>
-            {message.isSimpleText ? (
-              <SimpleAnimatedTextDisplay text={message.content} />
-            ) : (
-              <AnimatedTextDisplay content={message.content} />
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
+        <div className="input-container">
+          <input
+            type="text"
+            placeholder="Send a message..."
+            value={newMessage}
+            onChange={(e) => setNewMessage(e.target.value)}
+          />
+          <button onClick={handleSendMessage}>
+            <FiSend />
+          </button>
+        </div>
       </div>
-      <div className="input-container">
-        <input
-          type="text"
-          placeholder="Type a message..."
-          value={newMessage}
-          onChange={(e) => setNewMessage(e.target.value)}
-        />
-        <button onClick={handleSendMessage}>Send</button>
-      </div>
-    </div>
-  );
-}
+    );
+  }
 
 export default Chat;
