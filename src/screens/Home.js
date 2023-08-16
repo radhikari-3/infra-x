@@ -71,6 +71,7 @@ function Home() {
         )}
         <div className="dashboard">
           <Routes>
+            <Route path="/" element={<Navigate replace to="/login" />} />
             <Route
               path="/login"
               element={isAuthenticated ? <Navigate to="/chat" /> : <Login />}
